@@ -1,1 +1,1 @@
-# Informatica
+# Computer Science
