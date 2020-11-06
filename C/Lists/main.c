@@ -44,7 +44,6 @@ int main() {
 	} while (i != 0);
 	
 	do{
-		printf("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \n");
 		printf("Selezionare la funzione che si vuole eseguire sulla lista, 0 per terminare. \n");
 		printf("\n");
 		printf("\t (1) Funzione cons, inserimento di un elemento in testa. \n");
