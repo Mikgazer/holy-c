@@ -1,18 +1,18 @@
-/*Si vogliono trovare gli elementi in comune a due file testo di parole 
+/*
+Si vogliono trovare gli elementi in comune a due file testo di parole 
 (UNO.TXT e DUE.TXT), ordinarle in senso lessicografico e stamparle in un file di uscita, 
 insieme al numero totale di volte in cui compaiono nel secondo file.
 
 Il contenuto del file UNO.TXT è ordinato e le parole sono in copia unica nel file, 
 quello del file DUE.TXT non è ordinato e la stessa parola può comparire più volte nel file.
-Ogni parola sia al massimo di 30 char.*/
+Ogni parola sia al massimo di 30 char.
+*/
 
 /*
 a) Nel main, per ciascuna parola letta dal primo file,
 1. la si mostri a video
 2. poi si cerchi la parola nel secondo file, contando il totale di volte in cui compare nel
 secondo file
-
-
 
 Si svolga il punto a2) tramite la funzione funzioneA; 
 	essa riceve la parola da cercare (letta dal primo file, nel main), 
@@ -61,8 +61,6 @@ int main() {
 	fclose(file_due);
 	/*CHIUSURA FILE*/
 
-
-	
 	/* APERTURA PRIMO FILE */
 	file_uno = fopen("uno.txt", "r");
 	if (file_uno = NULL) {
@@ -73,8 +71,6 @@ int main() {
 	/*CONTROLLA CON LA FUNZIONE A SE E' PRESENTE ANCHE NEL SECONDO FILE(SECONDA STRUTTURA)*/
 	/*SE E' PRESENTE VIENE INSERITO NELLA LISTA, IL NUMERO DI VOLTE CHE COMPARE E' RIS*/
 	/*OVVERO LA VARIABILE TROVATO IN FUNZIONE_A*/
-	/**/
-	/**/
 	while (!feof(file_uno)) {
 		fscanf(file_uno, "%s", parole_uno[i].nome);
 		printf("\n%s", &parole_uno[i].nome);
