@@ -6,7 +6,7 @@ public class VeicoliMain {
 		Automobile a;
 		Bicicletta b;
 		
-		a = new Automobile("G4YLORD");
+		a = new Automobile("test");
 		b = new Bicicletta();
 		
 		a.avvia();
