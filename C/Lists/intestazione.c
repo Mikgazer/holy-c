@@ -71,8 +71,7 @@ list cons(int e, list l) {
 	return t;
 }
 
-//DA RIGUARDARE
-/*
+
 list sublist(int e, list l, list sub_l) {
 
 	int i = 0;
