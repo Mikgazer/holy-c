@@ -25,7 +25,7 @@ int funzione_A(element *parole, element *parole_due, int i, int k) {
 	return trovato;
 }
 
-/*INSERIMENTO LISTA*/
+/* Inserimento lista */
 list cons(second_element parole, list l) {
 	list t;
 	t = (list)malloc(sizeof(item));
@@ -34,7 +34,7 @@ list cons(second_element parole, list l) {
 	return t;
 }
 
-/*INSERISCE LA STRUTTURA NELLA LISTA, SFRUTTANDO CONS*/
+/* Inserisca la struttura nella lista, sfruttando cons */
 list funzione_B(list l, second_element parole) {
 
 	cons(parole, l);
@@ -42,7 +42,7 @@ list funzione_B(list l, second_element parole) {
 
 }
 
-/*STAMPA LISTA*/
+/* Stampa della lista */
 void showList(list l) {
 
 	if (l != NULL) exit(-1);
