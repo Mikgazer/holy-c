@@ -1,10 +1,11 @@
 /*
-Il programma deve visualizzare un menu con diverse opzioni. Prende quindi in
-input un carattere che corrisponde ad uno dei seguenti comandi, esegue il
-comando e ritorna al menu per una nuova operazione.
-'r' → Generare un nuovo albero, il programma deve prendere in
-input i numeri da inserire all'interno dell'albero, usando getElement, e
-chiedendo, dopo ogni inserimento, se si vuole continuare o tornare al menu.
+Il programma deve visualizzare un menu con diverse opzioni. 
+Prende quindi ininput un carattere che corrisponde ad uno dei seguenti comandi
+Esegue il comando e ritorna al menu per una nuova operazione.
+'r' → Generare un nuovo albero -
+- il programma deve prendere in input i numeri da inserire all'interno dell'albero, usando getElement
+- e chiedendo, dopo ogni inserimento, se si vuole continuare o tornare al menu.
+
 '<' → Eseguire stampa preorder.
 '>' → Eseguire stampa postorder.
 'i' → Eseguire stampa inorder.
@@ -91,8 +92,7 @@ int main(){
 
 	} while (scelta != 'r' || scelta != '<' || scelta != '>' || scelta != 'i' || scelta != '/' || scelta != 'h' || scelta != 's' || scelta != 'n' || scelta != 'b' || scelta != 'e');
 
-
-
+	
 	printf("\n");
 	printf("\nStampa in ordine \n");
 	inorder(t1);
