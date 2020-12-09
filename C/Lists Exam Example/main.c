@@ -1,33 +1,33 @@
 /*
 Si vogliono trovare gli elementi in comune a due file testo di parole 
-(UNO.TXT e DUE.TXT), ordinarle in senso lessicografico e stamparle in un file di uscita, 
-insieme al numero totale di volte in cui compaiono nel secondo file.
+	(UNO.TXT e DUE.TXT), ordinarle in senso lessicografico e stamparle in un file di uscita, 
+	insieme al numero totale di volte in cui compaiono nel secondo file.
 
 Il contenuto del file UNO.TXT è ordinato e le parole sono in copia unica nel file, 
-quello del file DUE.TXT non è ordinato e la stessa parola può comparire più volte nel file.
+	quello del file DUE.TXT non è ordinato e la stessa parola può comparire più volte nel file.
 Ogni parola sia al massimo di 30 char.
 */
 
 /*
 a) Nel main, per ciascuna parola letta dal primo file,
-1. la si mostri a video
-2. poi si cerchi la parola nel secondo file, contando il totale di volte in cui compare nel
-secondo file
+	1. la si mostri a video
+	2. poi si cerchi la parola nel secondo file, contando il totale di volte in cui compare nel secondo file
+
 
 Si svolga il punto a2) tramite la funzione funzioneA; 
-	essa riceve la parola da cercare (letta dal primo file, nel main), 
-	il puntatore al secondo file, più altri parametri a scelta, 
-	e restituisce un intero (il totale di volte in cui compare nel secondo file);
+Essa riceve la parola da cercare (letta dal primo file, nel main), 
+	- il puntatore al secondo file, più altri parametri a scelta, 
+	- e restituisce un intero (il totale di volte in cui compare nel secondo file);
 
 b) Se il totale di volte è maggiore di 0, chiamando una seconda funzioneB, inserisca parola 
-	e totale in una lista L, ordinata sul campo parola; la funzioneB ha come parametri 
-	il puntatore alla lista e l’elemento da inserire (parola e totale) 	più altri parametri 
-	a scelta, e restituisce la nuova lista ottenuta dopo l’inserimento;
+	e totale in una lista L, ordinata sul campo parola. 
+	La funzioneB ha come parametri il puntatore alla lista, l’elemento da inserire (parola e totale), 
+	- più altri parametri a scelta, e restituisce la nuova lista ottenuta dopo l’inserimento;
 
-c) Stampi il contenuto della lista L su un file di uscita, OUTPUT.TXT, con la stampa di parola 
-e totale suogni linea, e restituisca il numero totale di parole (la lunghezza della lista); 
-tale funzioneC ha come parametri il puntatore alla lista L, il puntatore al file 
-(più eventuali altri a scelta) e restituisce un intero che viene poi stampato dal main;
+c) Si stampi il contenuto della lista L su un file di uscita, OUTPUT.TXT, con la stampa di parola 
+	- e totale suogni linea, e restituisca il numero totale di parole (la lunghezza della lista); 
+Tale funzioneC ha come parametri il puntatore alla lista L, il puntatore al file, 
+	- (più eventuali altri a scelta) e restituisce un intero che viene poi stampato dal main;
 */
 
 #include "funzioni.h"
@@ -59,9 +59,9 @@ int main() {
 		k++;
 	}
 	fclose(file_due);
-	/*CHIUSURA FILE*/
+	/* Chiusura file */
 
-	/* APERTURA PRIMO FILE */
+	/* Apertura prima file */
 	file_uno = fopen("uno.txt", "r");
 	if (file_uno = NULL) {
 		printf("\n Apertura file uno.txt non riuscita \n");
@@ -91,7 +91,7 @@ int main() {
 		i++;
 	}
 	fclose(file_uno);
-	/*CHIUSURA FILE*/
+	/* Chiusura file */
 
 	system("PAUSE");
 	return 0;
