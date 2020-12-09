@@ -47,7 +47,7 @@ int main() {
 	int j = 0;
 	int ris = 0;
 
-	/* APERTURA SECONDO FILE (SECONDO MA VA APERTO PRIMA)*/
+	/* Apertura secondo file (è il secondo file ma va aperto prima */
 	file_due = fopen("due.txt", "r");
 	if (file_due = NULL) {
 		printf("\n Apertura file due.txt non riuscita \n");
@@ -67,19 +67,21 @@ int main() {
 		printf("\n Apertura file uno.txt non riuscita \n");
 		exit(-1);
 	}
-	/*FINO ALLA FINE DEL FILE*/
-	/*CONTROLLA CON LA FUNZIONE A SE E' PRESENTE ANCHE NEL SECONDO FILE(SECONDA STRUTTURA)*/
-	/*SE E' PRESENTE VIENE INSERITO NELLA LISTA, IL NUMERO DI VOLTE CHE COMPARE E' RIS*/
-	/*OVVERO LA VARIABILE TROVATO IN FUNZIONE_A*/
+	
+
+	/* Fino alla fine del file, */
+	/* - controlla con la funzione a se e' presente anche nel secondo file(seconda struttura). */
+	/* Se e' presente viene inserito nella lista, il numero di volte che compare e' ris */
+	/* ...ovvero la variabile trovato in funzione_a */
 	while (!feof(file_uno)) {
 		fscanf(file_uno, "%s", parole_uno[i].nome);
 		printf("\n%s", &parole_uno[i].nome);
 		ris = funzione_A(parole_uno, parole_due, i, k);
 
 		if (ris > 0) {
-			/*SE E' PRESENTE NELLA STRUTTURA 2*/
-			/*COPIA IL NOME NELLA STRUTTURA 3*/
-			/*IL NUMERO DI VOLTA CHE E' PRESENTE NELLA SECONDA STRUTTURA E' RIS*/
+			/* Se è presente nella struttura 2 */
+			/* Copia il nome nella struttura 3 */
+			/* Il numero di volte che è presente nella seconda struttura è ris */
 			strcpy(parole_tre[j].nome, parole_uno[i].nome);
 			parole_tre[j].valore = ris;
 			j++;
