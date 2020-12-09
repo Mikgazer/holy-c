@@ -1,7 +1,7 @@
 old_list = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 list_1 = [x for x in old_list if x % 2 == 0]
 list_2 = [x for x in old_list if x >= 8]
-List_3 = [x * 2 for x in old_list if x < 13]
+list_3 = [x * 2 for x in old_list if x < 13]
 list_4 = [x * 2 for x in old_list if x % 2 == 1]
 list_5 = [x * 2 for x in old_list]
 
