@@ -17,20 +17,20 @@ public void actionPerformed(ActionEvent ev) {
 	display.requestFocus();
 	String operazione = ev.getActionCommand();
 	if (operazione.equals("C")) {
-	result = 0;
-	valore = 0;
-	precOp = "nop";
+		result = 0;
+		valore = 0;
+		precOp = "nop";
 	} else {
-	if (precOp.equals("+")) {
-	result += valore;
+		if (precOp.equals("+")) {
+		result += valore;
 	} else if (precOp.equals("-")) {
-	result -= valore;
+		result -= valore;
 	} else if (precOp.equals("*")) {
-	result *= valore;
+		result *= valore;
 	} else if (precOp.equals("/")) {
-	result /= valore;
+		result /= valore;
 	} else if (precOp.equals("nop")) {
-	result = valore;
+		result = valore;
 	}
 	display.setText("" + result);
 	precOp = operazione;
