@@ -42,4 +42,4 @@ if len(res) > 0:
     r = res[0]
     print(r["Charm"], r["Particle"])
 else:
-    print("Error, no such particle exists!")
+    print("Error, no such particle exist!")
