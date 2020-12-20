@@ -18,7 +18,7 @@ const char *ack = "ack";
 const int result = 0;
 void handler(int signal){
 	int status;
-	while(waitpid(-1,&status,WNOHANG)>0);	//eseguo wait non bloccanti
+	while(waitpid(-1, &status,WNOHANG)>0);	//eseguo wait non bloccanti
 }
 
 void handler_2(int signal){
@@ -28,7 +28,7 @@ void handler_2(int signal){
 
 int main(void){
 	
-	int err, on ,cc, socket_descriptor, ns, nread, z=0;
+	int err, on , cc, socket_descriptor, ns, nread, z = 0;
 	int pid;
 	int pipe_pf[2];
 	char readpipe[BUFSIZE];
@@ -38,12 +38,12 @@ int main(void){
 	//cc valore di ritorno
 	//on per le opzioni della setsockopt
 	
-	signal(SIGINT,handler_2);
+	signal(SIGINT, handler_2);
 
 	struct addrinfo hints, *res;
 	struct sigaction sa;
 	uint8_t buffer[BUFSIZE];
-	memset(buffer,0,BUFSIZE);
+	memset(buffer, 0 ,BUFSIZE);
 	
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags = SA_RESTART;
