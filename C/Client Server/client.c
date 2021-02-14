@@ -23,7 +23,7 @@ int main(int argc, char **argv){
 	int err, on ,cc, socket_descriptor, nread;
 	int i=0,z=0;
 	char msg[BUFSIZE];
-	uint8_t buffer[BUFSIZE];
+	uint8_t buffer[BUFSIZE]; /* unsigned integer of length 8 bits */
 
 	signal(SIGINT,handler);
 	
@@ -31,7 +31,7 @@ int main(int argc, char **argv){
 	struct addrinfo hints, *res;
 	struct addrinfo *ptr;
 	
-	if(argc<3){
+	if(argc < 3){
 		fprintf(stderr, "Uso: ./nomefile <server> <porta>.\n");
 		exit(1);
 	}
