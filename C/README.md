@@ -1,7 +1,7 @@
 https://docs.microsoft.com/en-us/windows/win32/winsock/sockaddr-2
 https://docs.microsoft.com/en-us/windows/win32/winsock/sockaddr-2
-Sockets are the "virtual" endpoints of any kind of network communications done between 2 hosts over in a network. 
-When you type www.google.com in your web browser, it opens a socket and connects to google.com to fetch the page and show it to you. 
-Same with any chat client like gtalk or skype... any network communication goes through a socket.
-The socket api on linux is similar to bsd/unix sockets from which it has evolved. 
-Although over time the api has become slightly different at few places. And now the newer official standard is posix sockets api which is same as bsd sockets.
+Sockets are the "virtual" endpoints of any kind of network communications done between 2 hosts over in a network.   
+When you type www.google.com in your web browser, it opens a socket and connects to google.com to fetch the page and show it to you.   
+Same with any chat client like gtalk or skype... any network communication goes through a socket.  
+The socket api on linux is similar to bsd/unix sockets from which it has evolved.   
+Although over time the api has become slightly different at few places. And now the newer official standard is posix sockets api which is same as bsd sockets.  
