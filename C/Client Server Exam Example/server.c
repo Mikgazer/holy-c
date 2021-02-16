@@ -33,7 +33,7 @@ int main(void){
 		exit(EXIT_FAILURE);
 	}
 
-	//Costruzione dell indirizzo
+	/* Costruzione dell indirizzo */
 	memset(&hints,0,sizeof(hints));
 	hints.ai_family=AF_UNSPEC;
 	hints.ai_socktype=SOCK_STREAM;
@@ -65,7 +65,7 @@ int main(void){
 		exit(EXIT_FAILURE);
 	}
 
-	//PADRE
+	/* PADRE */
 	for(;;){
 			
 			int pid, ns;
@@ -84,7 +84,7 @@ int main(void){
 				exit(EXIT_FAILURE);
 			}
 			
-			//FIGLIO
+			/* FIGLIO */
 			else if(pid==0){
 				
 				char corso[BUFSIZE];
@@ -94,11 +94,11 @@ int main(void){
 				
 				int pid_n1,pid_n2;
 				int pipe_n1n2[2],pipe_n2f[2];
-				
-				//molto importante
+				 
+				/* molto importante */
 				close(sd);
 			
-				//Corso
+				/* Corso */
 				memset(corso,0,sizeof(corso));
 				if((cc=read(ns,corso,sizeof(corso)))<0){
 					perror("read corso server side\n");
@@ -109,7 +109,7 @@ int main(void){
 					exit(EXIT_FAILURE);
 				}
 
-				//Insegnamento
+				/* Insegnamento */
 				memset(insegnamento,0,sizeof(insegnamento));
 				if((cc=read(ns,insegnamento,sizeof(insegnamento)))<0){
 					perror("read insegnamento server side\n");
@@ -120,7 +120,7 @@ int main(void){
 					exit(EXIT_FAILURE);
 				}
 			
-				//Nrecensioni
+				/* Nrecensioni */
 				memset(nrecensioni,0,sizeof(nrecensioni));
 				if((cc=read(ns,nrecensioni,sizeof(nrecensioni)))<0){
 					perror("read nrecensioni server side\n");
@@ -129,7 +129,7 @@ int main(void){
 				printf("%s: %s: %s\n",corso,insegnamento,nrecensioni);
 				printf("Invio informazioni al client.\n");
 
-				//Fork e pipe
+				/* Fork e pipe */
 				cc=pipe(pipe_n1n2);
 				if(cc<0){
 					perror("pipe pipe_n1n2\n");
@@ -141,7 +141,7 @@ int main(void){
 					exit(EXIT_FAILURE);
 				}
 	
-				//NIPOTE 1
+				/* NIPOTE 1 */
 				else if(pid_n1==0){
 					char db_file[BUFSIZE];
 					
@@ -168,7 +168,7 @@ int main(void){
 					exit(EXIT_FAILURE);
 				}
 	
-				//NIPOTE 2
+				/* NIPOTE 2 */
 				else if(pid_n2==0){
 					close(ns);
 					
@@ -187,7 +187,7 @@ int main(void){
 					exit(EXIT_FAILURE);
 				}
 			
-				//FIGLIO
+				/* FIGLIO */
 				close(pipe_n1n2[0]);
 				close(pipe_n1n2[1]);
 			
@@ -207,13 +207,12 @@ int main(void){
 				
 			}
 	
-			//PADRE
+			/* PADRE */
 			close(ns);
 		
 	}
 	close(sd);
 		
-	
 	return 0;
 	
 
