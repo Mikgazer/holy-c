@@ -24,13 +24,10 @@ void handler(int signal){
 
 /* 
 
-Given node and service, which identify an Internet host and a service, getaddrinfo() returns one or more addrinfo structures,
-       - each of which contains an Internet address that can be specified in a call to bind(2) or connect(2).  
-The getaddrinfo() function combines the functionality provided by the gethostbyname(3) and getservbyname(3) functions into a single interface, 
-       - but unlike the latter functions, getaddrinfo() is reentrant and allows programs to eliminate IPv4-versus-IPv6 dependencies.
+Given node and service, which identify an Internet host and a service, getaddrinfo() returns one or more addrinfo structures, each of which contains an Internet address that can be specified in a call to bind(2) or connect(2).  
+The getaddrinfo() function combines the functionality provided by the gethostbyname(3) and getservbyname(3) functions into a single interface but unlike the latter functions, getaddrinfo() is reentrant and allows programs to eliminate IPv4-versus-IPv6 dependencies.
 
-The addrinfo structure used by getaddrinfo() contains the
-following fields:
+The addrinfo structure used by getaddrinfo() contains the following fields:
 
    struct addrinfo {
        int              ai_flags;
@@ -45,14 +42,15 @@ following fields:
 
 Various structures are used in Unix Socket Programming to hold information about the address and port and other information. 
 Most socket functions require a pointer to a socket address structure as an argument. 
-Structures defined in this chapter are related to Internet Protocol Family.
 
 sockaddr
 The first structure is sockaddr that holds the socket information:
+
 	struct sockaddr {
 	   unsigned short   sa_family;
 	   char             sa_data[14];
 	};
+	
 This is a generic socket address structure, which will be passed most of the socket function calls.
 
 sockaddr in
@@ -65,7 +63,6 @@ The second structure that helps you to reference to the socket's elements is as 
 	};
 
 */
-
 
 
 int main(int argc, char **argv){
@@ -85,7 +82,8 @@ int main(int argc, char **argv){
 		fprintf(stderr, "Uso: ./nomefile <server> <porta>.\n");
 		exit(1);
 	}
-	//costruzione dell'indirizzo
+	
+	/* costruzione dell'indirizzo */
 	memset(&hints, 0, sizeof(hints));
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
@@ -122,7 +120,7 @@ int main(int argc, char **argv){
 			printf("Errore di connessione!\n");
 			exit(3);
 		}	
-		//Scambio dati con il Server
+		/* Scambio dati con il Server */
 		printf("Inserire il messaggio che si vuole inviare al server, fine per terminare.\n");
 		scanf("%s",msg);
 		if(write(socket_descriptor,msg,strlen(msg))<0){
@@ -135,14 +133,14 @@ int main(int argc, char **argv){
 			perror("read ack");
 			exit(1);
 		}
-		/*
-		if(nread=read(socket_descriptor,buffer,sizeof(buffer))<0){
+		
+		/* if(nread=read(socket_descriptor,buffer,sizeof(buffer))<0){
 			perror("read");
 			exit(EXIT_FAILURE);
 		}
 
-		printf("Sono stati scritti %d byte\n",nread);
-		*/
+		printf("Sono stati scritti %d byte\n",nread); */
+		
 		
 	}
 	while(strcmp(msg,"fine")!=0);
