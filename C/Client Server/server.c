@@ -33,10 +33,11 @@ int main(void){
 	int pipe_pf[2];
 	char readpipe[BUFSIZE];
 	memset(&readpipe,0,BUFSIZE);
-	//err valore di ritorno della getaddrinfo
-	//socket descriptor è il descrittore della socket
-	//cc valore di ritorno
-	//on per le opzioni della setsockopt
+	
+	/* err valore di ritorno della getaddrinfo */
+	/* socket descriptor è il descrittore della socket */
+	/* cc valore di ritorno */
+	/* on per le opzioni della setsockopt */
 	
 	signal(SIGINT, handler_2);
 
@@ -104,7 +105,7 @@ int main(void){
 			}
 			printf("Connessione al client riuscita.\n");
 
-			//creazione pipe e chiamata fork
+			/* creazione pipe e chiamata fork */
 			cc=pipe(pipe_pf);
 			pid = fork();	
 			if(pid<0){
@@ -145,10 +146,11 @@ int main(void){
 				close(socket_descriptor);
 				exit(1);
 			}	
-			/*
+			
+			/* 
 			for(z=0;z<4;z++){
 				printf("%s-",&buffer[z]);
-			}
+			} 
 			*/
 				
 			if(write(ns,ack,strlen(ack))<0){
@@ -160,7 +162,7 @@ int main(void){
 
 
 	close(ns);
-	//chiudo socket_descriptor
+	/* chiudo socket_descriptor */
 	close(socket_descriptor);
 
 	return 0;
