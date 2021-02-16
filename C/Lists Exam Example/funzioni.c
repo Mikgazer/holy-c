@@ -2,11 +2,10 @@
 #include "funzioni.h"
 
 /*
-Questa funzione controlla se, il nome della struttura 1 e' presente nella struttura 
-fa il ciclo controllando ogni elemento della struttura 1 con ognuno della seconda
-se trova uno uguale, aumenta di 1 la variabile trovato
-con la seconda funzione poi viene inserito nella lista
-trovato indica il numero di volte che compare
+Questa funzione controlla se il nome della struttura 1 e' presente nella struttura 2.
+Fa il ciclo controllando ogni elemento della struttura 1 con ognuno della seconda.
+Se trova un elemento uguale, aumenta di 1 la variabile trovato.
+con la seconda funzione poi viene inserito nella lista trovato indica il numero di volte che compare.
 */
 
 int funzione_A(element *parole, element *parole_due, int i, int k) {
