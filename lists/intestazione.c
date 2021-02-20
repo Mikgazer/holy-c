@@ -47,19 +47,19 @@ list cons_tail(int e, list l) {
 	list prec, aux;
 	prec = NULL;
 	list patt = l;
-	aux = (list)malloc(sizeof(item)); // Alloca nodo
+	aux = (list)malloc(sizeof(item));  /* Alloca nodo */
 	aux->value = e;
 	aux->next = NULL;
-	if (l == NULL) return aux;  // Inserisce in lista vuota
+	if (l == NULL) return aux;  /* Inserisce in lista vuota */
 	else
 	{
-		while (patt != NULL)  // Non fine lista
+		while (patt != NULL)  /* Non fine lista */
 		{
 			prec = patt;
 			patt = patt->next;
 		}
-		prec->next = aux; // Aggiunge in fondo
-		return l; // Restituisce radice 1
+		prec->next = aux;  /* Aggiunge in fondo */
+		return l;  /* Restituisce radice 1 */
 	}
 }
 
