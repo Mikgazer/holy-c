@@ -32,7 +32,7 @@ int main(int argc, char *argv[]){
 	host_remoto = argv[1];
 	servizio_remoto = argv[2];
 
-	if((err = getaddrinfo(host_remoto, servizio_remoto, &hints, &res))!=0){
+	if((err = getaddrinfo(host_remoto, servizio_remoto, &hints, &res)) != 0){
 		fprintf(stderr, "Errore risoluzione nome: %s\n", gai_strerror(err));
 		exit(1);
 	}
