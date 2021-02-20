@@ -20,11 +20,11 @@ posizione k alla fine: funzione sublist
 
 int main() {
 
-	int scelta=0;
-	int e=0;
-	int i=0;
-	int trovato=0;
-	int lunghezza=0;
+	int scelta = 0;
+	int e = 0;
+	int i = 0;
+	int trovato = 0;
+	int len = 0;
 	int somma = 0;
 
 	list L; 
@@ -79,8 +79,8 @@ int main() {
 			printf("\n");
 			break;
 
-		case 5: lunghezza = lenght(L);
-			printf("\t Lunghezza della lista = %d \n", lunghezza);
+		case 5: len = lenght(L);
+			printf("\t Lunghezza della lista = %d \n", len);
 			printf("\n");
 			break;
 
@@ -91,9 +91,9 @@ int main() {
 
 		/*
 		case 7: printf("\t Inserire la lunghezza della sottolista che si vuole estrapolare \n");
-			lunghezza = lenght(L);
+			len = lenght(L);
 			scanf("%d", &e);
-			if (e > lunghezza) {
+			if (e > len) {
 				sub_l = sublist(e, L, sub_l);
 				showlist(sub_l);
 				break;
@@ -103,7 +103,7 @@ int main() {
 		}
 		*/
 
-	} while (scelta > 0 || scelta<7);
+	} while (scelta > 0 || scelta < 7);
 
 	return 0;
 }
