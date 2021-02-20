@@ -1,7 +1,8 @@
-/*
- 1) Creare una funzione per l’inserimento di elementi in testa ad una
+/* 
+
+1) Creare una funzione per l’inserimento di elementi in testa ad una
 lista: funzione cons.
- 2) Creare una funzione per l’inserimento di elementi in coda ad una
+2) Creare una funzione per l’inserimento di elementi in coda ad una
 lista: funzione cons_tail.
  3) Creare una funzione per la stampa di una lista: funzione showlist.
  4) Creare una funzione per la ricerca di un elemento n nella lista:
@@ -11,8 +12,10 @@ funzione length.
  6) Creare una funzione per il calcolo della somma degli interi
 contenuti nella lista: funzione sumlist.
  7) Creare una funzione per l’estrapolazione di una sotto-lista, dalla
-posizione k alla fine: funzione sublist
+posizione k alla fine: funzione sublist 
+
 */
+
 #define _CRT_SECURE_NO_DEPRECATE
 #include <stdlib.h>
 #include <stdio.h>
