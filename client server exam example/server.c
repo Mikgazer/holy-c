@@ -11,7 +11,7 @@
 #include <stdint.h>
 
 #define BUFSIZE 2048
-const char *servizio="50000";
+const char *servizio = "50000"; /* port */
 
 void handler(int signal){
 	int status;
@@ -39,28 +39,28 @@ int main(void){
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_flags = AI_PASSIVE;
 
-	if((err=getaddrinfo(NULL,servizio, &hints,&res))<0){
-		fprintf(stderr,"Errore gai: %s.\n", gai_strerror(err));
+	if((err = getaddrinfo(NULL, servizio, &hints, &res)) < 0){
+		fprintf(stderr, "Errore gai: %s.\n", gai_strerror(err));
 		exit(EXIT_FAILURE);;
 	}
 
-	if((sd=socket(res->ai_family,res->ai_socktype,res->ai_protocol))<0){
+	if((sd = socket(res->ai_family,res->ai_socktype,res->ai_protocol)) < 0){
 		perror("socket");
 		exit(EXIT_FAILURE);
 	}
 
 	on=1;
-	if(setsockopt(sd,SOL_SOCKET,SO_REUSEADDR, &on, sizeof(on))<0){
+	if(setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on)) < 0){
 		perror("setsockopt");
 		exit(EXIT_FAILURE);
 	}
 
-	if((cc=bind(sd,res->ai_addr,res->ai_addrlen))<0){
+	if((cc = bind(sd,res->ai_addr,res->ai_addrlen)) < 0){
 		perror("bind");
 		exit(EXIT_FAILURE);;
 	}
 
-	if((cc=listen(sd, SOMAXCONN))<0){
+	if((cc = listen(sd, SOMAXCONN)) < 0){
 		perror("listen");
 		exit(EXIT_FAILURE);
 	}
