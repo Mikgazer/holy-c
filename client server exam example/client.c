@@ -53,7 +53,7 @@ int main(int argc, char *argv[]){
 
 		/* Connessione con fallback */
 		for(ptr = res; ptr!=NULL; ptr = ptr->ai_next){
-			//Se socket fallisce salto direttamente alla prossima iterazione
+			/* Se socket fallisce salto direttamente alla prossima iterazione */
 			if((sd = socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol))<0){
 				fprintf(stderr, "Errore creazione socket. \n");
 				continue;
@@ -113,7 +113,7 @@ int main(int argc, char *argv[]){
 		scanf("%s", corso);
 		
 
-	}while(strcmp(corso, "fine")!=0);
+	} while(strcmp(corso, "fine") != 0);
 
 	freeaddrinfo(res);
 	printf("\nTermino...\n");
