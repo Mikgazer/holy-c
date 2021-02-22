@@ -68,11 +68,11 @@ The second structure that helps you to reference to the socket's elements is as 
 int main(int argc, char **argv){
 	
 	int err, on ,cc, socket_descriptor, nread;
-	int i=0,z=0;
+	int i = 0, z =0;
 	char msg[BUFSIZE];
 	uint8_t buffer[BUFSIZE]; /* unsigned integer of length 8 bits */
 
-	signal(SIGINT,handler);
+	signal(SIGINT, handler);
 	
 	char *host_remoto, *servizio_remoto;
 	struct addrinfo hints, *res;
@@ -92,7 +92,7 @@ int main(int argc, char **argv){
 	servizio_remoto = argv[2];
 
 	err = getaddrinfo(host_remoto, servizio_remoto, &hints, &res);
-	if(err!=0){
+	if(err != 0){
 		fprintf(stderr, "Errore gai: %s\n", gai_strerror(err));
 		exit(EXIT_FAILURE);
 	}
@@ -103,12 +103,12 @@ int main(int argc, char **argv){
 	do
 	{
 		for(ptr=res; ptr != NULL; ptr = ptr->ai_next){
-			if((socket_descriptor= socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol))<0){
+			if((socket_descriptor= socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol)) < 0){
 				fprintf(stderr, "Creazione socket fallita al tentativo %d.\n",i);
 				continue;
 			}
-			if(connect(socket_descriptor,ptr->ai_addr, ptr->ai_addrlen)==0){
-				printf("Connect riuscita al tentativo %d , connesso per l'%d esima volta.\n", i,z);
+			if(connect(socket_descriptor, ptr->ai_addr, ptr->ai_addrlen) == 0){
+				printf("Connect riuscita al tentativo %d , connesso per l'%d esima volta.\n", i, z);
 				break;
 			}
 			i++;
@@ -116,20 +116,20 @@ int main(int argc, char **argv){
 			
 		}
 		
-		if(ptr==NULL){
+		if(ptr == NULL){
 			printf("Errore di connessione!\n");
 			exit(3);
 		}	
 		/* Scambio dati con il Server */
 		printf("Inserire il messaggio che si vuole inviare al server, fine per terminare.\n");
-		scanf("%s",msg);
-		if(write(socket_descriptor,msg,strlen(msg))<0){
+		scanf("%s", msg);
+		if(write(socket_descriptor, msg, strlen(msg)) < 0){
 			perror("write");
 			exit(1);
 		}
 		
-		if(read(socket_descriptor,buffer,sizeof(buffer))>=0) printf("Ricevuto ack del messaggio inviato.\n");
-		else if(read(socket_descriptor,buffer,sizeof(buffer))<0){
+		if(read(socket_descriptor, buffer, sizeof(buffer)) >= 0) printf("Ricevuto ack del messaggio inviato.\n");
+		else if(read(socket_descriptor, buffer, sizeof(buffer)) < 0){
 			perror("read ack");
 			exit(1);
 		}
@@ -143,7 +143,7 @@ int main(int argc, char **argv){
 		
 		
 	}
-	while(strcmp(msg,"fine")!=0);
+	while(strcmp(msg, "fine") != 0);
 	
 	/* a questo punto, posso liberare la memoria allocata da getaddrinfo */
     	freeaddrinfo(res);
