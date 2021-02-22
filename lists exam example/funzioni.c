@@ -44,7 +44,7 @@ list funzione_B(list l, second_element parole) {
 /* Stampa della lista */
 void showList(list l) {
 
-	if (l != NULL) exit(-1);
+	if (l == NULL) exit(-1);
 	else {
 		printf("\n%s ; %d", l->value.nome, l->value.valore);
 		showList(l->next);
