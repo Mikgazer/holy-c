@@ -7,7 +7,7 @@ boolean isEqual(element e1, element e2) {
 	return (e1 == e2);
 }
 boolean isLess(element e1, element e2) {
-	return (e1<e2);
+	return (e1 < e2);
 }
 element getElement(void) {
 	element el;
