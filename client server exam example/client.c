@@ -21,7 +21,7 @@ int main(int argc, char *argv[]){
 	char insegnamento[BUFSIZE];
 	char nrecensioni[BUFSIZE];
 	
-	if(argc<3){
+	if(argc < 3){
 		fprintf(stderr,"Uso: ./nome file <server> <porta>\n");
 	}
 	
