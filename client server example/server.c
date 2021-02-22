@@ -18,7 +18,7 @@ const char *ack = "ack";
 const int result = 0;
 void handler(int signal){
 	int status;
-	while(waitpid(-1, &status,WNOHANG)>0);	//eseguo wait non bloccanti
+	while(waitpid(-1, &status,WNOHANG)>0);	/* eseguo wait non bloccanti */
 }
 
 void handler_2(int signal){
@@ -60,31 +60,31 @@ int main(void){
 	hints.ai_flags = AI_PASSIVE;
 
 	err = getaddrinfo(NULL, servizio, &hints, &res);
-	if(err!=0){
+	if(err != 0){
 		fprintf(stderr, "Errore gai: %s\n", gai_strerror(err));
 		exit(EXIT_FAILURE);
 	}
 
 	socket_descriptor = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
-	if(socket_descriptor<0){
+	if(socket_descriptor < 0){
 		perror("socket");
 		exit(EXIT_FAILURE);
 	}
 
 	on = 1;
-	if(setsockopt(socket_descriptor, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on))<0){
+	if(setsockopt(socket_descriptor, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on)) < 0){
 		perror("setsockopt");
 		exit(EXIT_FAILURE);
 	}
 
 	cc = bind(socket_descriptor,res->ai_addr, res->ai_addrlen);
-	if(cc<0){
+	if(cc < 0){
 		perror("bind");
 		exit(EXIT_FAILURE);
 	}
 
 	cc=listen(socket_descriptor,SOMAXCONN);
-	if(cc<0){
+	if(cc < 0){
 		perror("listen");
 		exit(EXIT_FAILURE);
 	}
@@ -95,10 +95,10 @@ int main(void){
 			socklen_t fromlen;
             		fromlen = sizeof(client_address);
 
-			memset(&buffer,0,sizeof(buffer));
+			memset(&buffer, 0 ,sizeof(buffer));
 			ns=accept(socket_descriptor, NULL, NULL);
-			if(ns<0){
-				if(errno=EINTR){	
+			if(ns < 0){
+				if(errno = EINTR){	
 					perror("accept");	
 					exit(EXIT_FAILURE);
 				}
@@ -106,27 +106,27 @@ int main(void){
 			printf("Connessione al client riuscita.\n");
 
 			/* creazione pipe e chiamata fork */
-			cc=pipe(pipe_pf);
+			cc = pipe(pipe_pf);
 			pid = fork();	
-			if(pid<0){
+			if(pid < 0){
 				perror("fork");
 				exit(1);
 			}
 			
-			else if(pid==0){ //FIGLIO
+			else if(pid == 0){ //FIGLIO
 				close(1);
 				dup(pipe_pf[1]);
 				close(pipe_pf[1]);
 				close(pipe_pf[0]);
 				
-				execlp("echo","echo","Hello World!",NULL);
+				execlp("echo", "echo", "Hello World!", NULL);
 				perror("execlp");
 				exit(1);
 			}
 			
 			//PADRE
 			close(pipe_pf[1]);
-			nread=read(pipe_pf[0],readpipe,BUFSIZE);
+			nread=read(pipe_pf[0], readpipe, BUFSIZE);
 			close(pipe_pf[0]);
 			if(nread<0){
 				perror("read");
@@ -140,7 +140,7 @@ int main(void){
 			}
 			
 			printf("Ricevuto messaggio dal client.\n");
-			if(strstr(buffer,"fine")){
+			if(strstr(buffer, "fine")){
 				printf("Ricevuto messaggio di exit. Termino.\n");
 				close(ns);
 				close(socket_descriptor);
@@ -153,7 +153,7 @@ int main(void){
 			} 
 			*/
 				
-			if(write(ns,ack,strlen(ack))<0){
+			if(write(ns, ack, strlen(ack)) < 0){
 				perror("write");
 				exit(EXIT_FAILURE);
 			}
