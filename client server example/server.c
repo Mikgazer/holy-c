@@ -28,7 +28,7 @@ void handler_2(int signal){
 
 int main(void){
 	
-	int err, on , cc, socket_descriptor, ns, nread, z = 0;
+	int err, on , cc, socket_descriptor, ns, nread;
 	int pid;
 	int pipe_pf[2];
 	char readpipe[BUFSIZE];
@@ -147,12 +147,7 @@ int main(void){
 				exit(1);
 			}	
 			
-			/* 
-			for(z=0;z<4;z++){
-				printf("%s-",&buffer[z]);
-			} 
-			*/
-				
+
 			if(write(ns, ack, strlen(ack)) < 0){
 				perror("write");
 				exit(EXIT_FAILURE);
