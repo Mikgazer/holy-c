@@ -122,7 +122,8 @@ tree ord_ins(element e, tree t)
 	{
 		if (isLess(e, root(t)))
 			t->left = ord_ins(e, left(t));
-		else t->right = ord_ins(e, right(t));
+		else 
+			t->right = ord_ins(e, right(t));
 		return t;
 	}
 }
