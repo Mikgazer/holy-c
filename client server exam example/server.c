@@ -49,7 +49,7 @@ int main(void){
 		exit(EXIT_FAILURE);
 	}
 
-	on=1;
+	on = 1;
 	if(setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on)) < 0){
 		perror("setsockopt");
 		exit(EXIT_FAILURE);
@@ -69,7 +69,7 @@ int main(void){
 	for(;;){
 			
 			int pid, ns;
-			ns=accept(sd, NULL, NULL);
+			ns = accept(sd, NULL, NULL);
 			
 			if(ns < 0){
 				if(errno == EINTR)
@@ -78,7 +78,7 @@ int main(void){
 				exit(EXIT_FAILURE);
 			}
 
-			pid=fork();
+			pid = fork();
 			if(pid < 0){
 				perror("fork");
 				exit(EXIT_FAILURE);
@@ -100,29 +100,29 @@ int main(void){
 			
 				/* Corso */
 				memset(corso,0,sizeof(corso));
-				if((cc = read(ns,corso, sizeof(corso)))<0){
+				if((cc = read(ns,corso, sizeof(corso))) < 0){
 					perror("read corso server side\n");
 					exit(EXIT_FAILURE);
 				}
-				if((cc = write(ns ,ack, strlen(ack)))<0){
+				if((cc = write(ns ,ack, strlen(ack))) < 0){
 					perror("write ack corso server side\n");
 					exit(EXIT_FAILURE);
 				}
 
 				/* Insegnamento */
 				memset(insegnamento, 0, sizeof(insegnamento));
-				if((cc = read(ns, insegnamento, sizeof(insegnamento)))<0){
+				if((cc = read(ns, insegnamento, sizeof(insegnamento))) < 0){
 					perror("read insegnamento server side\n");
 					exit(EXIT_FAILURE);
 				}
-				if((cc = write(ns,ack,strlen(ack)))<0){
+				if((cc = write(ns,ack,strlen(ack))) < 0){
 					perror("write ack insegnamento server side\n");
 					exit(EXIT_FAILURE);
 				}
 			
 				/* Nrecensioni */
 				memset(nrecensioni, 0, sizeof(nrecensioni));
-				if((cc = read(ns, nrecensioni, sizeof(nrecensioni)))<0){
+				if((cc = read(ns, nrecensioni, sizeof(nrecensioni))) < 0){
 					perror("read nrecensioni server side\n");
 					exit(EXIT_FAILURE);
 				}
@@ -182,7 +182,7 @@ int main(void){
 					dup(pipe_n2f[1]);
 					close(pipe_n2f[1]);
 					
-					execlp("sort", "sort", "-n", "-r",NULL);
+					execlp("sort", "sort", "-n", "-r", NULL);
 					perror("execlp");
 					exit(EXIT_FAILURE);
 				}
