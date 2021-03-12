@@ -1,6 +1,7 @@
 /*
+
 Il programma deve visualizzare un menu con diverse opzioni. 
-Prende quindi ininput un carattere che corrisponde ad uno dei seguenti comandi
+Prende quindi in input un carattere che corrisponde ad uno dei seguenti comandi.
 Esegue il comando e ritorna al menu per una nuova operazione.
 'r' → Generare un nuovo albero -
 - il programma deve prendere in input i numeri da inserire all'interno dell'albero, usando getElement
@@ -15,6 +16,7 @@ Esegue il comando e ritorna al menu per una nuova operazione.
 'n' → Calcolare il numero di nodi.
 'b' → Calcolare il bilanciamento dell'albero.
 'e' → Uscire dal programma
+
 */
 
 #define _CRT_SECURE_NO_DEPRECATE
@@ -30,6 +32,8 @@ int main(){
 	int nodi = 0;
 	tree t1;
 	t1 = NULL;
+	
+	char temp[BUFSIZ];
 
 	do
 	{
@@ -44,7 +48,7 @@ int main(){
 		printf("\n (8) 'n': Calcola il numero di nodi. ");
 		printf("\n (9) 'b': Calcolare il bilanciamento dell'albero. ");
 		printf("\n (10) 'e': Uscire dal programma \n");
-		scanf("\n%c", &scelta);
+		scanf_s("\n%c", &scelta);
 
 		switch (scelta) {
 
@@ -52,10 +56,10 @@ int main(){
 				t1=emptytree();
 				do {
 					printf("\n Inserire l'elemento da inserire nel nuovo albero \n");
-					el=getElement;
-					t1=ord_ins(el, t1);
+					el = getElement;
+					t1 = ord_ins(el, t1);
 					printf("Si vuole continuare? s/n");
-					scanf("%c", &s_scelta);
+					scanf_s("%c", &s_scelta);
 
 				} while (s_scelta = 's');
 				break;
@@ -81,11 +85,11 @@ int main(){
 				nodi = nnodi(t1);
 				printf("\n Il numero di nodi dell'albero e' %d", nodi);
 				break;
-			//case 'b' bilanciamento
+			/* case 'b' bilanciamento */
 			case 'e': exit(-1); break;
 			
 			default: {
-				printf("\n Errore. Inserire un carattere valido \n");
+				printf("\n Errore. Inserire un carattere valido. \n");
 			}
 
 		}
@@ -96,7 +100,7 @@ int main(){
 	printf("\n");
 	printf("\nStampa in ordine \n");
 	inorder(t1);
-	system("PAUSE\n");
+	scanf_s("%s", temp, BUFSIZ);
 	system("\n");
 	system("cls");
 	
