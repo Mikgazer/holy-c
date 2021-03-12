@@ -96,7 +96,7 @@ int main(void){
             		fromlen = sizeof(client_address);
 
 			memset(&buffer, 0 ,sizeof(buffer));
-			ns=accept(socket_descriptor, NULL, NULL);
+			ns = accept(socket_descriptor, NULL, NULL);
 			if(ns < 0){
 				if(errno = EINTR){	
 					perror("accept");	
@@ -127,7 +127,7 @@ int main(void){
 			
 			/* PADRE */
 			close(pipe_pf[1]);
-			nread=read(pipe_pf[0], readpipe, BUFSIZE);
+			nread = read(pipe_pf[0], readpipe, BUFSIZE);
 			close(pipe_pf[0]);
 			if(nread < 0){
 				perror("read");
