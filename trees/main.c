@@ -53,7 +53,7 @@ int main(){
 		switch (scelta) {
 
 			case 'r': 
-				t1=emptytree();
+				t1 = emptytree();
 				do {
 					printf("\n Inserire l'elemento da inserire nel nuovo albero \n");
 					el = getElement;
@@ -78,7 +78,7 @@ int main(){
 				printf("\n L'altezza dell'albero e' %d", altezza);
 				break;
 			case 's': 
-				//somma = sum(t1);
+				/* somma = sum(t1); */
 				printf("\n La somma degli elementi dell'albero e' %d", somma);
 				break;
 			case 'n': 
