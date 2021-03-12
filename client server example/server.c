@@ -113,7 +113,8 @@ int main(void){
 				exit(1);
 			}
 			
-			else if(pid == 0){ //FIGLIO
+			/* FIGLIO */
+			else if(pid == 0){ 
 				close(1);
 				dup(pipe_pf[1]);
 				close(pipe_pf[1]);
@@ -124,17 +125,17 @@ int main(void){
 				exit(1);
 			}
 			
-			//PADRE
+			/* PADRE */
 			close(pipe_pf[1]);
 			nread=read(pipe_pf[0], readpipe, BUFSIZE);
 			close(pipe_pf[0]);
-			if(nread<0){
+			if(nread < 0){
 				perror("read");
 				exit(1);
 			}
-			printf("Il figlio ha scritto %s\n",readpipe);
+			printf("Il figlio ha scritto %s\n", readpipe);
 		
-			if(nread=read(ns,buffer,sizeof(buffer))<0){
+			if(nread = read(ns,buffer,sizeof(buffer)) < 0){
 				perror("read");
 				exit(EXIT_FAILURE);
 			}
