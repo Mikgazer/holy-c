@@ -98,12 +98,12 @@ int main(int argc, char **argv){
 	}
 
 	
-	printf("Connessione al Server a all'ip %s alla porta %s riuscita.\n",host_remoto,servizio_remoto);
+	printf("Connessione al Server a all'ip %s alla porta %s riuscita.\n", host_remoto, servizio_remoto);
 	
 	do
 	{
-		for(ptr=res; ptr != NULL; ptr = ptr->ai_next){
-			if((socket_descriptor= socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol)) < 0){
+		for(ptr = res; ptr != NULL; ptr = ptr->ai_next){
+			if((socket_descriptor = socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol)) < 0){
 				fprintf(stderr, "Creazione socket fallita al tentativo %d.\n",i);
 				continue;
 			}
@@ -128,13 +128,14 @@ int main(int argc, char **argv){
 			exit(1);
 		}
 		
-		if(read(socket_descriptor, buffer, sizeof(buffer)) >= 0) printf("Ricevuto ack del messaggio inviato.\n");
+		if(read(socket_descriptor, buffer, sizeof(buffer)) >= 0) 
+			printf("Ricevuto ack del messaggio inviato.\n");
 		else if(read(socket_descriptor, buffer, sizeof(buffer)) < 0){
 			perror("read ack");
 			exit(1);
 		}
 		
-		/* if(nread=read(socket_descriptor,buffer,sizeof(buffer))<0){
+		/* if(nread = read(socket_descriptor,buffer,sizeof(buffer)) < 0){
 			perror("read");
 			exit(EXIT_FAILURE);
 		}
