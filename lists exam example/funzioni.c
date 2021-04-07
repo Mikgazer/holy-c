@@ -27,7 +27,7 @@ int funzione_A(element *parole, element *parole_due, int i, int k) {
 /* Inserimento lista */
 list cons(second_element parole, list l) {
 	list t;
-	t = (list)malloc(sizeof(item));
+	t = (list) malloc(sizeof(item));
 	t->value = parole;
 	t->next = l; 
 	return t;
